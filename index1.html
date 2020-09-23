@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="lt">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>Duomenų įvedimas</title>
+  </head>
+
+  <body>
+    <style>
+      field {
+        width: 150px;
+        display: inline-block;
+      }
+
+      label~field:not(empty) {
+        outline: solid blue 2px;
+      }
+
+      label~field:not(empty)~span {
+        visibility: hidden;
+      }
+
+      label~field:empty {
+        outline: solid red 2px;
+      }
+
+      label~field:empty~span {
+        visibility: visible;
+      }
+    </style>
+    <h1>Prisijungimo forma</h1>
+    <form>
+      <legend>Prisijungimo duomenys:</legend>
+      <div class="form-field">
+        <label for="name">Įveskite savo vardą: </label>
+        <field id="name" pattern="\S+" contenteditable="true"></field>
+        <span class="error">Šis laukas būtinas!</span>
+      </div>
+      <div class="form-field">
+        <label for="email">Įveskite savo el. paštą: </label>
+        <field id="email" pattern="\S+" contenteditable="true"></field>
+        <span class="error">Šis laukas būtinas!</span>
+      </div>
+      <div class="form-field">
+        <input type="submit" value="Prisijungti!">
+      </div>
+    </form>
+    <script>
+      const name = document.querySelector('#name');
+      const email = document.querySelector('#email');
+      const form = document.querySelector('form');
+      // FormData event is sent on <form> submission, so we can modify the data before transmission.
+      // It has a .formData property, and that's all we need.
+      form.addEventListener('formdata', ({
+        formData
+      }) => {
+        // https://developer.mozilla.org/en-US/docs/Web/API/FormData
+        formData.append('name', name.textContent);
+        formData.append('email', email.textContent);
+      });
+    </script>
+  </body>
+
+</html>
