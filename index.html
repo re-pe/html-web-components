@@ -4,15 +4,26 @@
   <head>
     <meta charset="utf-8" />
     <title>Duomenų įvedimas</title>
-    <style>
-      label ~ input:valid { outline: solid blue 2px; }
-      label ~ input:valid ~ span { visibility: hidden;}
-      label ~ input:invalid { outline: solid red 2px; }
-      label ~ input:invalid ~ span { visibility: visible;}
-    </style>
   </head>
 
   <body>
+    <style>
+      label~input:valid {
+        outline: solid blue 2px;
+      }
+
+      label~input:valid~span {
+        visibility: hidden;
+      }
+
+      label~input:invalid {
+        outline: solid red 2px;
+      }
+
+      label~input:invalid~span {
+        visibility: visible;
+      }
+    </style>
     <h1>Prisijungimo forma</h1>
     <form>
       <legend>Prisijungimo duomenys:</legend>
