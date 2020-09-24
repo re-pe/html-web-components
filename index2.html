@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="lt">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>Duomenų įvedimas</title>
+  </head>
+
+  <body>
+    <template id="test">
+      <style>
+        label~input:valid {
+          outline: solid blue 2px;
+        }
+
+        label~input:valid~span {
+          visibility: hidden;
+        }
+
+        label~input:invalid {
+          outline: solid red 2px;
+        }
+
+        label~input:invalid~span {
+          visibility: visible;
+        }
+      </style>
+    </template>
+
+    <h1>Prisijungimo forma</h1>
+    <form>
+      <legend>Prisijungimo duomenys:</legend>
+      <div class="form-field">
+        <label for="name">Įveskite savo vardą: </label>
+        <input type="text" name="name" id="name" pattern="\S+" required>
+        <span class="error">Šis laukas būtinas!</span>
+      </div>
+      <div class="form-field">
+        <label for="email">Įveskite savo el. paštą: </label>
+        <input type="email" name="email" id="email" pattern="\S+" required>
+        <span class="error">Šis laukas būtinas!</span>
+      </div>
+      <div class="form-field">
+        <input type="submit" value="Prisijungti!">
+      </div>
+    </form>
+  </body>
+
+</html>

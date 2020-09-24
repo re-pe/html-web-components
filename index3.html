@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="lt">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>Duomenų įvedimas</title>
+  </head>
+
+  <body>
+    <template id='formField'>
+      <style>
+        label~input:valid {
+          outline: solid blue 2px;
+        }
+
+        label~input:valid~span {
+          visibility: hidden;
+        }
+
+        label~input:invalid {
+          outline: solid red 2px;
+        }
+
+        label~input:invalid~span {
+          visibility: visible;
+        }
+      </style>
+      <label></label>
+      <input pattern="\S+">
+      <span></span>
+    </template>
+
+    <h1>Prisijungimo forma</h1>
+    <form>
+      <fieldset id="loginData">
+        <legend>Prisijungimo duomenys:</legend>
+        <div class="form-field" id="nameField"></div>
+        <div class="form-field" id="emailField"></div>
+        <div class="form-field">
+          <label for="name">Įveskite savo slaptažodį: </label>
+          <input type="password" name="pass" id="pass" pattern="\S+" required>
+          <span>Šis laukas būtinas!</span>
+        </div>
+        <div>
+          <input type="submit" value="Prisijungti!">
+        </div>
+      </fieldset>
+    </form>
+    <script src="./src/formField3.js"></script>
+  </body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form</title>
+  </head>
+
+  <body>
+    <template id="formField">
+      <style>
+        :host {
+          margin-bottom: 10px;
+          display: block;
+        }
+
+        .invalid-field {
+          border: 1px solid red;
+        }
+
+        .invalid-field:focus {
+          outline-color: red;
+        }
+
+        .form-field {
+          display: table;
+        }
+
+        label,
+        input {
+          display: table-cell;
+          margin: 0 5px;
+        }
+
+        label {
+          padding-right: 10px;
+        }
+
+        .error {
+          display: inline-block;
+        }
+
+        .hidden {
+          display: none;
+        }
+      </style>
+
+      <div class="form-field">
+        <label></label>
+        <input />
+        <span class="error"></span>
+      </div>
+    </template>
+    <form>
+      <fieldset id="loginData">
+        <legend>Prisijungimo duomenys:</legend>
+        <db-form-field label="Įveskite savo vardą" type="text" error-message="Šis laukas būtinas!" required>
+        </db-form-field>
+        <db-form-field label="Įveskite savo el. paštą" type="text" error-message="Šis laukas būtinas!!" required>
+        </db-form-field>
+        <div class="form-field">
+          <label for="name">Įveskite savo slaptažodį: </label>
+          <input type="password" name="pass" id="pass" pattern="\S+" required>
+          <span>Šis laukas būtinas!</span>
+        </div>
+        <div>
+          <input type="submit" value="Prisijungti!">
+        </div>
+      </fieldset>
+    </form>
+    <script src="./src/formField4.js"></script>
+    <script>
+    </script>
+  </body>
+
+</html>
